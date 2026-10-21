@@ -17,11 +17,11 @@ $
 $
 
 $
-  [|x := e|] defeq lambda sigma. sigma[x |-> n] "where" n = [|e|]_sigma
+  [|x := e|] defeq lambda sigma. sigma[x |-> n] "where" n = eval(e, sigma)
 $
 
 $
-  [|cif e cthen s_1 celse s_2|] defeq cases([|s_1|] & "if" [|e|]_sigma = ctrue, [|s_2|] & "if" [|e|]_sigma = cfalse)
+  [|cif e cthen s_1 celse s_2|] defeq cases([|s_1|] & "if" eval(e, sigma) = ctrue, [|s_2|] & "if" eval(e, sigma) = cfalse)
 $
 
 $

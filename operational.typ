@@ -10,7 +10,7 @@ $eval(e, sigma) defeq$ evaluates expression $e : Exp$ against $sigma : (Var -> V
 
 #prooftree(rule(
   name: smallcaps[Assign],
-  $[|e|]_sigma = n$,
+  $eval(e, sigma) = n$,
   $cfg(x := e, sigma) -> cfg(cskip, sigma[x |-> n])$,
 ))
 
@@ -35,12 +35,12 @@ $eval(e, sigma) defeq$ evaluates expression $e : Exp$ against $sigma : (Var -> V
 #rule-set(
   prooftree(rule(
     name: smallcaps[If-True],
-    $[|e|]_sigma = ctrue$,
+    $eval(e, sigma) = ctrue$,
     $cfg(cif e cthen s_1 celse s_2, sigma) -> cfg(s_1, sigma)$,
   )),
   prooftree(rule(
     name: smallcaps[If-False],
-    $[|e|]_sigma = cfalse$,
+    $eval(e, sigma) = cfalse$,
     $cfg(cif e cthen s_1 celse s_2, sigma) -> cfg(s_2, sigma)$,
   )),
 )

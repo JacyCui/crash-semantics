@@ -21,6 +21,7 @@
 #let Stmt = $bold("Stmt")$
 
 // Syntax
+
 #let cskip = $mono("skip")$
 #let cwhile = $mono("while")$
 #let cdo = $mono("do")$

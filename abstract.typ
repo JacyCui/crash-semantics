@@ -24,8 +24,8 @@ Properties:
 
   $
     [|cif e cthen s_1 celse s_2|](sigma) defeq cases(
-      [|s_1|](sigma) & "if" [|e|]_sigma = ctrue,
-      [|s_2|](sigma) & "if" [|e|]_sigma = cfalse
+      [|s_1|](sigma) & "if" eval(e, sigma) = ctrue,
+      [|s_2|](sigma) & "if" eval(e, sigma) = cfalse
     )
   $
 
