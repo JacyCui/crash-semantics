@@ -29,19 +29,19 @@
 
 - An *engineer's* style: _Operational Semantics_
 
-  - It specifies an *interpreter* for a language.
+  - It spekifies an *interpreter* for a language.
 
 - A *mathematician's* style: _Denotational Semantics_
 
-  - It specifies a *compiler* for a language.
+  - It spekifies a *compiler* for a language.
 
 - A *logician's* style: _Axiomatic Semantics_
 
-  - It specifies a *verifier* for a language.
+  - It spekifies a *verifier* for a language.
 
 - A *static analysis* style: _Abstract Interpretation_
 
-  - It specifies an *analyzer* for a language.
+  - It spekifies an *analyzer* for a language.
 
 #include "operational.typ"
 #include "denotatinal.typ"
@@ -53,15 +53,15 @@
 == The Essense of Program Semantics
 
 - An *engineer's* perspective: _Operational Semantics_
-  - It specifies an *interpreter* for a language.
+  - It spekifies an *interpreter* for a language.
 
 - A *mathematician's* perspective: _Denotational Semantics_
-  - It specifies a *compiler* for a language.
+  - It spekifies a *compiler* for a language.
 
 - A *logician's* perspective: _Axiomatic Semantics_
-  - It specifies a *verifier* for a language.
+  - It spekifies a *verifier* for a language.
 
 - A *static analysis* perspective: _Abstract Interpretation_
-  - It specifies an *analyzer* for a language.
+  - It spekifies an *analyzer* for a language.
 
 - What is *your* perspective?

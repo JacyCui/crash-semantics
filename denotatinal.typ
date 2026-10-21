@@ -9,7 +9,7 @@ $
 $
 
 $
-  [|cskip|] defeq lambda sigma. sigma
+  [|kskip|] defeq lambda sigma. sigma
 $
 
 $
@@ -21,11 +21,11 @@ $
 $
 
 $
-  [|cif e cthen s_1 celse s_2|] defeq cases([|s_1|] & "if" eval(e, sigma) = ctrue, [|s_2|] & "if" eval(e, sigma) = cfalse)
+  [|kif e kthen s_1 ktrue s_2|] defeq cases([|s_1|] & "if" eval(e, sigma) = ktrue, [|s_2|] & "if" eval(e, sigma) = kfalse)
 $
 
 $
-  [|cwhile e cdo s|] defeq [|cif e cthen (c semi cwhile e cdo s) celse cskip|]
+  [|kwhile e kdo s|] defeq [|kif e kthen (c semi kwhile e kdo s) ktrue kskip|]
 $
 
 == Denotational Semantics
@@ -35,5 +35,5 @@ $
   - #link("https://www.cl.cam.ac.uk/teaching/1112/DenotSem/dens-notes-bw.pdf")[Pitts' Lecture Notes]
 
 #focus-slide[
-  #align(center)[It specifies a compiler!]
+  #align(center)[It spekifies a compiler!]
 ]

@@ -22,11 +22,12 @@
 
 // Syntax
 
-#let cskip = $mono("skip")$
-#let cwhile = $mono("while")$
-#let cdo = $mono("do")$
-#let cif = $mono("if")$
-#let cthen = $mono("then")$
-#let celse = $mono("else")$
-#let ctrue = $mono("true")$
-#let cfalse = $mono("false")$
+#let kw(name) = $mono(#name)$.body
+#let kskip = kw("skip")
+#let kwhile = kw("while")
+#let kdo = kw("do")
+#let kif = kw("if")
+#let kthen = kw("then")
+#let ktrue = kw("else")
+#let ktrue = kw("true")
+#let kfalse = kw("false")

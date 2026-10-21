@@ -11,7 +11,7 @@ $eval(e, sigma) defeq$ evaluates expression $e : Exp$ against $sigma : (Var -> V
 #prooftree(rule(
   name: smallcaps[Assign],
   $eval(e, sigma) = n$,
-  $cfg(x := e, sigma) -> cfg(cskip, sigma[x |-> n])$,
+  $cfg(x := e, sigma) -> cfg(kskip, sigma[x |-> n])$,
 ))
 
 - Sequential Control:
@@ -24,7 +24,7 @@ $eval(e, sigma) defeq$ evaluates expression $e : Exp$ against $sigma : (Var -> V
   )),
   prooftree(rule(
     name: smallcaps[Skip],
-    $cfg(cskip semi s, sigma) -> cfg(s, sigma)$,
+    $cfg(kskip semi s, sigma) -> cfg(s, sigma)$,
   )),
 )
 
@@ -35,13 +35,13 @@ $eval(e, sigma) defeq$ evaluates expression $e : Exp$ against $sigma : (Var -> V
 #rule-set(
   prooftree(rule(
     name: smallcaps[If-True],
-    $eval(e, sigma) = ctrue$,
-    $cfg(cif e cthen s_1 celse s_2, sigma) -> cfg(s_1, sigma)$,
+    $eval(e, sigma) = ktrue$,
+    $cfg(kif e kthen s_1 ktrue s_2, sigma) -> cfg(s_1, sigma)$,
   )),
   prooftree(rule(
     name: smallcaps[If-False],
-    $eval(e, sigma) = cfalse$,
-    $cfg(cif e cthen s_1 celse s_2, sigma) -> cfg(s_2, sigma)$,
+    $eval(e, sigma) = kfalse$,
+    $cfg(kif e kthen s_1 ktrue s_2, sigma) -> cfg(s_2, sigma)$,
   )),
 )
 
@@ -50,7 +50,7 @@ $eval(e, sigma) defeq$ evaluates expression $e : Exp$ against $sigma : (Var -> V
 #rule-set(
   prooftree(rule(
     name: smallcaps[While],
-    $cfg(cwhile e cdo s, sigma) -> cfg(cif e cthen (s semi cwhile e cdo s) celse cskip, sigma)$,
+    $cfg(kwhile e kdo s, sigma) -> cfg(kif e kthen (s semi kwhile e kdo s) ktrue kskip, sigma)$,
   )),
 )
 
@@ -73,5 +73,5 @@ $eval(e, sigma) defeq$ evaluates expression $e : Exp$ against $sigma : (Var -> V
 - Readings: #link("https://hongjin-liang.github.io/semantics2024/07_operational.pdf")[Liang's Lecture Slides]
 
 #focus-slide[
-  #align(center)[It specifies an interpreter!]
+  #align(center)[It spekifies an interpreter!]
 ]

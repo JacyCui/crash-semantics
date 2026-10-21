@@ -7,7 +7,7 @@
 #rule-set(
   prooftree(rule(
     name: smallcaps[Skip],
-    ${p} cskip {p}$,
+    ${p} kskip {p}$,
   )),
   prooftree(rule(
     name: smallcaps[Seq],
@@ -21,17 +21,17 @@
   prooftree(rule(
     name: smallcaps[If],
     ${p and e} s_1 {q} quad {p and not e} s_2 {q}$,
-    ${p} cif e cthen s_1 celse s_2 {q}$,
+    ${p} kif e kthen s_1 ktrue s_2 {q}$,
   )),
   prooftree(rule(
     name: smallcaps[WhileP],
     ${i and e} s {i}$,
-    ${i} cwhile e cdo s {i and not e}$,
+    ${i} kwhile e kdo s {i and not e}$,
   )),
   prooftree(rule(
     name: smallcaps[WhileT],
     ${i and e and v = x_0} s {i and v < x_0} quad i and e => v >= 0$,
-    ${i} cwhile e cdo s {i and not e}$,
+    ${i} kwhile e kdo s {i and not e}$,
   )),
 )
 
@@ -48,5 +48,5 @@
   - #link("https://hongjin-liang.github.io/semantics2024/09_Separation.pdf")[Liang' Lecture Slides on Seperation Logic]
 
 #focus-slide[
-  #align(center)[It specifies a verifier!]
+  #align(center)[It spekifies a verifier!]
 ]

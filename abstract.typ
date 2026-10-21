@@ -23,16 +23,16 @@ Properties:
 - Concrete: $sigma : X$
 
   $
-    [|cif e cthen s_1 celse s_2|](sigma) defeq cases(
-      [|s_1|](sigma) & "if" eval(e, sigma) = ctrue,
-      [|s_2|](sigma) & "if" eval(e, sigma) = cfalse
+    [|kif e kthen s_1 ktrue s_2|](sigma) defeq cases(
+      [|s_1|](sigma) & "if" eval(e, sigma) = ktrue,
+      [|s_2|](sigma) & "if" eval(e, sigma) = kfalse
     )
   $
 
 - Abstract: $Sigma : X^hash$
 
   $
-    [|cif e cthen s_1 celse s_2|]^hash (Sigma) defeq [|s_1|]^hash(Sigma) union.sq [|s_2|]^hash(Sigma)
+    [|kif e kthen s_1 ktrue s_2|]^hash (Sigma) defeq [|s_1|]^hash(Sigma) union.sq [|s_2|]^hash(Sigma)
   $
 
 == Abstract Interpretation
@@ -40,5 +40,5 @@ Properties:
 Readings: #link("https://pcousot.github.io/talks/Cousot-tutorial-ICTAC-2019.pdf")[Cousot's Tutorial Slides]
 
 #focus-slide[
-  #align(center)[It specifies an analyzer!]
+  #align(center)[It spekifies an analyzer!]
 ]
