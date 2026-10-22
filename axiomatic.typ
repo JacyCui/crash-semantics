@@ -24,14 +24,14 @@
     ${p} kif e kthen s_1 ktrue s_2 {q}$,
   )),
   prooftree(rule(
-    name: smallcaps[WhileP],
+    name: smallcaps[While],
     ${i and e} s {i}$,
     ${i} kwhile e kdo s {i and not e}$,
   )),
   prooftree(rule(
-    name: smallcaps[WhileT],
-    ${i and e and v = x_0} s {i and v < x_0} quad i and e => v >= 0$,
-    ${i} kwhile e kdo s {i and not e}$,
+    name: smallcaps[While-Total],
+    $[i and e and v = x_0] s [i and v < x_0] quad i and e => v >= 0$,
+    $[i] kwhile e kdo s [i and not e]$,
   )),
 )
 
@@ -46,6 +46,10 @@
   - #link("https://hongjin-liang.github.io/semantics2024/08_Hoare.pdf")[Liang' Lecture Slides on Hoare Logic]
 
   - #link("https://hongjin-liang.github.io/semantics2024/09_Separation.pdf")[Liang' Lecture Slides on Seperation Logic]
+
+  - #link(
+      "https://im.ntu.edu.tw/~tsay/dokuwiki/lib/exe/fetch.php?media=courses:ssv2011:concurrency.pdf",
+    )[Tsay's Lecture Slides on Concurrent Hoare Logic]
 
 #focus-slide[
   #align(center)[It spekifies a verifier!]
