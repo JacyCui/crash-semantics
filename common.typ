@@ -7,18 +7,20 @@
 #let defeq = $attach(limits(=), t: "def")$
 #let cfg(..args) = {
   let items = args.pos().map(x => $#x$).join([, ])
-  $chevron.l #items chevron.r$
+  $chevron.l #items chevron.r$.body
 }
-#let eval(exp, store) = $[|#exp|]_#store$
-#let steps = $class("binary", ->)^*$
-#let galois(alpha: $alpha$, gamma: $gamma$) = $attach(harpoons.ltrb, t: #gamma, b: #alpha)$
+#let semantics(syntax) = $[|#syntax|]$.body
+#let eval(exp, store) = $semantics(#exp)_#store$.body
+#let steps = $class("binary", ->)^*$.body
+#let galois(alpha: $alpha$, gamma: $gamma$) = $attach(harpoons.ltrb, t: #gamma, b: #alpha)$.body
 
 // Domains
 
-#let Exp = $bold("Exp")$
-#let Value = $bold("Value")$
-#let Var = $bold("Var")$
-#let Stmt = $bold("Stmt")$
+#let domain(name) = $bold(#name)$.body
+#let Exp = domain("Exp")
+#let Value = domain("Value")
+#let Var = domain("Var")
+#let Stmt = domain("Stmt")
 
 // Syntax
 

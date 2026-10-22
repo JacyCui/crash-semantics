@@ -20,19 +20,25 @@ Properties:
 
 == Abstract Semantics Example
 
-- Concrete: $sigma : X$
+- Concrete: $sigma in X$
 
   $
-    [|kif e kthen s_1 ktrue s_2|](sigma) defeq cases(
-      [|s_1|](sigma) & "if" eval(e, sigma) = ktrue,
-      [|s_2|](sigma) & "if" eval(e, sigma) = kfalse
+    semantics(kif e kthen s_1 ktrue s_2)(sigma) defeq cases(
+      semantics(s_1)(sigma) & "if" eval(e, sigma) = ktrue,
+      semantics(s_2)(sigma) & "if" eval(e, sigma) = kfalse
     )
   $
 
-- Abstract: $Sigma : X^hash$
+- Abstract: $Sigma in X^hash$
 
   $
-    [|kif e kthen s_1 ktrue s_2|]^hash (Sigma) defeq [|s_1|]^hash(Sigma) union.sq [|s_2|]^hash(Sigma)
+    semantics(kif e kthen s_1 ktrue s_2)^hash (Sigma) defeq semantics(s_1)^hash(Sigma) union.sq semantics(s_2)^hash(Sigma)
+  $
+
+- Soundness of $semantics(dot.op)^hash$ with respect to $semantics(dot.op)$:
+
+  $
+    alpha(sigma) subset.eq.sq Sigma => alpha(semantics(s)(sigma)) subset.eq.sq semantics(s)^hash(Sigma)
   $
 
 == Abstract Interpretation
