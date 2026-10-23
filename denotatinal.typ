@@ -13,7 +13,7 @@ $
 $
 
 $
-  semantics(s_1 semi s_2) defeq semantics(s_1) compose semantics(s_1)
+  semantics(s_1 semi s_2) defeq semantics(s_2) compose semantics(s_1)
 $
 
 $

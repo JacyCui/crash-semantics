@@ -72,6 +72,31 @@ $eval(e, sigma) defeq$ evaluates expression $e : Exp$ against $sigma : (Var -> V
 
 - Readings: #link("https://hongjin-liang.github.io/semantics2024/07_operational.pdf")[Liang's Lecture Slides]
 
+== Contextual Example
+
+$
+  cfg(x + (y - 3), {x |-> 2, y |-> 1}) \
+  = cfg(cal(E)_1[x], {x |-> 2, y |-> 1}) where cal(E)_1 = [dot] + (y - 3) \
+  -> cfg(2 + (y - 3), {x |-> 2, y |-> 1}) \
+  = cfg(cal(E)_2[y], {x |-> 2, y |-> 1}) where cal(E)_2 = 2 + ([dot] - 3)\
+  -> cfg(2 + (1 - 3), {x |-> 2, y |-> 1}) \
+  = cfg(cal(E)_3[1-3], {x |-> 2, y |-> 1}) where cal(E)_3 = 2 + [dot]\
+  -> cfg(2 + (-1), {x |-> 2, y |-> 1}) \
+  -> cfg(1, {x |-> 2, y |-> 1}) \
+$
+
+== call/cc Example
+
+$
+  (kcallcc (lambda k. klet (k space 2) kin 3) + 1 \
+    = C_1[(kcallcc (lambda k. klet (k space 2) kin 3)] where C_1 = [dot] + 1 \
+      -> C_1[(lambda k. klet (k space 2) kin 3) (lambda x. C_1[x])] where C_1 = [dot] + 1 \
+      -> C_1[klet ((lambda x. C_1[x]) space 2) kin 3)] where C_1 = [dot] + 1 \
+    = C_2[(lambda x. C_1[x]) space 2] where C_2 = (klet [dot] kin 3)) + 1 \
+  -> C_1[2] where C_1 = [dot] + 1 \
+  = 2 + 1
+$
+
 #focus-slide[
   #align(center)[It spekifies an interpreter!]
 ]

@@ -13,6 +13,8 @@
 #let eval(exp, store) = $semantics(#exp)_#store$.body
 #let steps = $class("binary", ->)^*$.body
 #let galois(alpha: $alpha$, gamma: $gamma$) = $attach(harpoons.ltrb, t: #gamma, b: #alpha)$.body
+#let where = "where"
+#let when = "when"
 
 // Domains
 
@@ -33,3 +35,6 @@
 #let ktrue = kw("else")
 #let ktrue = kw("true")
 #let kfalse = kw("false")
+#let kcallcc = kw("call/cc")
+#let klet = kw("let")
+#let kin = kw("in")
